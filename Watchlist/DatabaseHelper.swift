@@ -113,16 +113,20 @@ class DatabaseHelper {
         }
     }
     
-    func populate(index: Int) throws -> String? {
+    func populate(index: Int) throws -> [String: String?] {
         
-        var result: String?
+        var result: [String: String?]
+        result = [:]
         var count = 0
         
         do {
             for list in try db!.prepare(movies) {
                 if count == index {
                     // return array
-                    result = "\(list[title]!)"
+                    result["title"] = "\(list[title]!)"
+                    result["year"] = "\(list[year]!)"
+                    result["poster"] = "\(list[poster]!)"
+                    result["imdbid"] = "\(list[imdbid]!)"
                 }
                 count += 1
             }

@@ -61,6 +61,17 @@ class ResultViewController: UIViewController {
                         self.movieYear.text = self.movieList["Year"] as? String
                         self.movieActors.text = self.movieList["Actors"] as? String
                         self.moviePlot.text = self.movieList["Plot"] as? String
+                        
+                        let posterString = self.movieList["Poster"] as? String
+                        let posterURL = URL(string: posterString!)
+                        
+                        self.getDataFromUrl(url: posterURL!) { (data, response, error)  in
+                            guard let data = data, error == nil else { return }
+                            DispatchQueue.main.async() { () -> Void in
+                                self.moviePoster.image = UIImage(data: data)
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -74,27 +85,15 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
     @IBAction func addMovie(_ sender: Any) {
-        
-        print((movieList["Title"] as? String)!)
-        print((movieList["Year"] as? String)!)
-        print((movieList["Rated"] as? String)!)
-        print((movieList["Released"] as? String)!)
-        print((movieList["Runtime"] as? String)!)
-        print((movieList["Genre"] as? String)!)
-        print((movieList["Director"] as? String)!)
-        print((movieList["Writer"] as? String)!)
-        print((movieList["Actors"] as? String)!)
-        print((movieList["Plot"] as? String)!)
-        print((movieList["Language"] as? String)!)
-        print((movieList["Country"] as? String)!)
-        print((movieList["Awards"] as? String)!)
-        print((movieList["Poster"] as? String)!)
-        print((movieList["Metascore"] as? String)!)
-        print((movieList["imdbRating"] as? String)!)
-        print((movieList["imdbVotes"] as? String)!)
-        print((movieList["imdbID"] as? String)!)
-        print((movieList["Type"] as? String)!)
         
         do {
             try db!.add(title: (movieList["Title"] as? String)!, year: (movieList["Year"] as? String)!, rated: (movieList["Rated"] as? String)!, released: (movieList["Released"] as? String)!, runtime: (movieList["Runtime"] as? String)!, genre: (movieList["Genre"] as? String)!, director: (movieList["Director"] as? String)!, writer: (movieList["Writer"] as? String)!, actors: (movieList["Actors"] as? String)!, plot: (movieList["Plot"] as? String)!, language: (movieList["Language"] as? String)!, country: (movieList["Country"] as? String)!, awards: (movieList["Awards"] as? String)!, poster: (movieList["Poster"] as? String)!, metascore: (movieList["Metascore"] as? String)!, imdbrating: (movieList["imdbRating"] as? String)!, imdbvotes: (movieList["imdbVotes"] as? String)!, imdbid: (movieList["imdbID"] as? String)!, type: (movieList["Type"] as? String)!)

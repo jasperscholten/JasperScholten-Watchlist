@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchField: UITextField!
     
     var movieList = [String: AnyObject]()
+    var imdbList = [Int: String]()
+    var selected = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // http://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int?
@@ -54,7 +64,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = listTableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath) as! WatchlistTableViewCell
         
         do {
-            cell.movieTitleList.text = try db!.populate(index: indexPath.row)
+            print(try db!.populate(index: indexPath.row))
+            cell.movieTitleList.text = try db!.populate(index: indexPath.row)["title"]!
+            cell.movieYearList.text = try db!.populate(index: indexPath.row)["year"]!
+            let movieID = try db!.populate(index: indexPath.row)["imdbid"]!
+            imdbList[indexPath.row] = movieID
+            
+            let posterString = try db!.populate(index: indexPath.row)["poster"]!
+            let posterURL = URL(string: posterString!)
+            
+            getDataFromUrl(url: posterURL!) { (data, response, error)  in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() { () -> Void in
+                    cell.moviePosterList.image = UIImage(data: data)
+                }
+            }
+            
         } catch {
             print(error)
         }
@@ -71,6 +96,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected \(indexPath.row)")
+        
+        DispatchQueue.main.async {
+            self.selected = indexPath.row
+            self.performSegue(withIdentifier: "showMovieList", sender: nil)
         }
     }
     
@@ -114,6 +148,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let showResults = segue.destination as? SearchViewController {
             showResults.movieList = movieList
+        }
+        
+        if let showMovie = segue.destination as? ResultViewController {
+            showMovie.movieID = imdbList[selected]!
+            print(imdbList[selected]!)
         }
     }
 
