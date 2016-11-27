@@ -16,8 +16,10 @@
 		A470B4A91DE87164008AB6DB /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4A81DE87164008AB6DB /* ResultViewController.swift */; };
 		A470B4AB1DE87618008AB6DB /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4AA1DE87618008AB6DB /* WatchlistTableViewCell.swift */; };
 		A470B4AD1DE8762C008AB6DB /* SearchresultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4AC1DE8762C008AB6DB /* SearchresultTableViewCell.swift */; };
-		A470B4F81DEAF36C008AB6DB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; };
 		A470B4FA1DEAF472008AB6DB /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4F91DEAF472008AB6DB /* DatabaseHelper.swift */; };
+		A470B5081DEB4E62008AB6DB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; };
+		A470B5091DEB4E67008AB6DB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; };
+		A470B50A1DEB4E67008AB6DB /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +72,28 @@
 			remoteGlobalIDString = A121AC451CA35C79005A31D1;
 			remoteInfo = "SQLite watchOS";
 		};
+		A470B50B1DEB4E67008AB6DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A470B4E01DEAF35F008AB6DB /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A470B50D1DEB4E67008AB6DB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A470B50A1DEB4E67008AB6DB /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A470B4901DE867E1008AB6DB /* Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A470B4F81DEAF36C008AB6DB /* SQLite.framework in Frameworks */,
+				A470B5091DEB4E67008AB6DB /* SQLite.framework in Frameworks */,
+				A470B5081DEB4E62008AB6DB /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,10 +183,12 @@
 				A470B48C1DE867E1008AB6DB /* Sources */,
 				A470B48D1DE867E1008AB6DB /* Frameworks */,
 				A470B48E1DE867E1008AB6DB /* Resources */,
+				A470B50D1DEB4E67008AB6DB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A470B50C1DEB4E67008AB6DB /* PBXTargetDependency */,
 			);
 			name = Watchlist;
 			productName = Watchlist;
@@ -292,6 +318,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A470B50C1DEB4E67008AB6DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = A470B50B1DEB4E67008AB6DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A470B4971DE867E1008AB6DB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -408,11 +442,13 @@
 		A470B4A31DE867E1008AB6DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3F7K5ABT44;
 				INFOPLIST_FILE = Watchlist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.Watchlist;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.WatchlistJasper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -421,11 +457,13 @@
 		A470B4A41DE867E1008AB6DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3F7K5ABT44;
 				INFOPLIST_FILE = Watchlist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.Watchlist;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.WatchlistJasper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
