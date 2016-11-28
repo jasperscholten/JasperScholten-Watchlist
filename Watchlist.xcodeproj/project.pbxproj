@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A455D2051DEC309C004835E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A455D2031DEC309C004835E2 /* Main.storyboard */; };
 		A470B4941DE867E1008AB6DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4931DE867E1008AB6DB /* AppDelegate.swift */; };
 		A470B4961DE867E1008AB6DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4951DE867E1008AB6DB /* ViewController.swift */; };
-		A470B4991DE867E1008AB6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A470B4971DE867E1008AB6DB /* Main.storyboard */; };
 		A470B49B1DE867E1008AB6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A470B49A1DE867E1008AB6DB /* Assets.xcassets */; };
 		A470B49E1DE867E1008AB6DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A470B49C1DE867E1008AB6DB /* LaunchScreen.storyboard */; };
 		A470B4A71DE87131008AB6DB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4A61DE87131008AB6DB /* SearchViewController.swift */; };
@@ -17,7 +17,6 @@
 		A470B4AB1DE87618008AB6DB /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4AA1DE87618008AB6DB /* WatchlistTableViewCell.swift */; };
 		A470B4AD1DE8762C008AB6DB /* SearchresultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4AC1DE8762C008AB6DB /* SearchresultTableViewCell.swift */; };
 		A470B4FA1DEAF472008AB6DB /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470B4F91DEAF472008AB6DB /* DatabaseHelper.swift */; };
-		A470B5081DEB4E62008AB6DB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; };
 		A470B5091DEB4E67008AB6DB /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; };
 		A470B50A1DEB4E67008AB6DB /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A470B4EB1DEAF35F008AB6DB /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -96,10 +95,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A455D2041DEC309C004835E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A470B4901DE867E1008AB6DB /* Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A470B4931DE867E1008AB6DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A470B4951DE867E1008AB6DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A470B4981DE867E1008AB6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A470B49A1DE867E1008AB6DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A470B49D1DE867E1008AB6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A470B49F1DE867E1008AB6DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A470B5091DEB4E67008AB6DB /* SQLite.framework in Frameworks */,
-				A470B5081DEB4E62008AB6DB /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +147,7 @@
 				A470B4A61DE87131008AB6DB /* SearchViewController.swift */,
 				A470B4A81DE87164008AB6DB /* ResultViewController.swift */,
 				A470B4F91DEAF472008AB6DB /* DatabaseHelper.swift */,
-				A470B4971DE867E1008AB6DB /* Main.storyboard */,
+				A455D2031DEC309C004835E2 /* Main.storyboard */,
 				A470B49A1DE867E1008AB6DB /* Assets.xcassets */,
 				A470B49C1DE867E1008AB6DB /* LaunchScreen.storyboard */,
 				A470B49F1DE867E1008AB6DB /* Info.plist */,
@@ -293,9 +291,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A455D2051DEC309C004835E2 /* Main.storyboard in Resources */,
 				A470B49E1DE867E1008AB6DB /* LaunchScreen.storyboard in Resources */,
 				A470B49B1DE867E1008AB6DB /* Assets.xcassets in Resources */,
-				A470B4991DE867E1008AB6DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +325,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A470B4971DE867E1008AB6DB /* Main.storyboard */ = {
+		A455D2031DEC309C004835E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A470B4981DE867E1008AB6DB /* Base */,
+				A455D2041DEC309C004835E2 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -364,6 +362,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -414,6 +413,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

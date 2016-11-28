@@ -28,10 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: .reload, object: nil)
         
-        // Method to dismiss keyboard upon tap outside keyboard. Uses func dismissKeyboard() http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
     }
     
     func reloadTableData(_ notification: Notification) {
@@ -109,11 +105,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DispatchQueue.main.async {
             self.selected = indexPath.row
             self.performSegue(withIdentifier: "showMovieList", sender: nil)
+            self.view.endEditing(true)
         }
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @IBAction func searchMovie(_ sender: Any) {
@@ -147,6 +142,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.movieList = json
                         self.performSegue(withIdentifier: "showResults", sender: nil)
                         self.searchField.text = ""
+                        self.view.endEditing(true)
                     }
                 }
             }

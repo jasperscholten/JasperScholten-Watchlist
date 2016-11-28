@@ -82,7 +82,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C22-4W-FPw" id="nh5-2W-1rI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ROX-Ik-HIW">
@@ -156,7 +156,7 @@
                         <outlet property="listTableView" destination="bKQ-BJ-B4O" id="hOe-2x-iap"/>
                         <outlet property="searchField" destination="FVH-ts-hmb" id="fmI-ZB-tGb"/>
                         <segue destination="c98-T2-obC" kind="show" identifier="showResults" id="efi-lS-oyr"/>
-                        <segue destination="h7d-fw-kWX" kind="show" identifier="showMovieList" id="Akn-1f-Xz2"/>
+                        <segue destination="h7d-fw-kWX" kind="show" identifier="showMovieList" id="Bv6-EU-SWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -202,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jZh-KB-2l3" id="TNA-sf-sYm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Q3-zh-yzc">
@@ -398,6 +398,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Akn-1f-Xz2"/>
+        <segue reference="Bv6-EU-SWI"/>
     </inferredMetricsTieBreakers>
 </document>
